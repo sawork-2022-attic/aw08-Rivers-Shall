@@ -1,15 +1,11 @@
 spring:
   application:
     name: pos-delivery-service
-  main:
-    allow-circular-references: false
-  cloud:
-    function:
-      definition: orderIdConsumer
-    stream:
-      function:
-        bindings:
-          orderIdConsumer-in-0: output-order
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/aw08
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
 #      binders:
 #        local_rabbit:
 #          type: rabbit
@@ -22,4 +18,7 @@ spring:
 #                password: guest
 server:
   port: 10000
-#
+management:
+  health:
+    rabbit:
+      enabled: false

@@ -13,23 +13,7 @@ import java.util.function.Consumer;
 
 @SpringBootApplication
 public class DeliveryApplication {
-
-    private String deliverUrl(Integer orderId) {
-        return "http://POS-ORDER-SERVICE/orders/" + orderId + "/deliver";
-    }
-
-    @Autowired
-    @LoadBalanced
-    private RestTemplate restTemplate;
-
     public static void main(String[] args) {
         SpringApplication.run(DeliveryApplication.class, args);
-    }
-
-    @Bean
-    public Consumer<Integer> orderIdConsumer() {
-        return (orderId -> {
-            restTemplate.getForObject(deliverUrl(orderId), Order.class);
-        });
     }
 }

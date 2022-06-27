@@ -300,6 +300,27 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+  /deliver/{orderId}:
+    get:
+      summary: check the delivery status of an order
+      operationId: deliveryStatus
+      tags:
+        - deliver
+      parameters:
+        - name: orderId
+          in: path
+          required: true
+          description: id of the order to check
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Order"
 components:
   schemas:
     Products:

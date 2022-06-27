@@ -29,6 +29,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Order createOrder(Cart cart) {
         Order order = new Order();
+        order.status(OrderDto.StatusEnum.CREATED);
         order = orderRepository.save(order);
         List<Item> items = new ArrayList<>();
         for (com.micropos.cart.model.Item item : cart.items()) {
@@ -42,11 +43,10 @@ public class OrderServiceImpl implements OrderService {
             itemRepository.save(item1);
         }
         order.items(items);
-        order.status(OrderDto.StatusEnum.CREATED);
         order = orderRepository.save(order);
-        if (order != null) {
-            streamBridge.send("output-order", order.id());
-        }
+//        if (order != null) {
+//            streamBridge.send("output-order", order.id());
+//        }
         return order;
     }
 
