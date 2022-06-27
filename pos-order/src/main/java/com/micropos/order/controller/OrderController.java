@@ -41,10 +41,4 @@ public class OrderController implements OrdersApi {
         List<OrderDto> orderDtos = orderMapper.toOrderDtos(orderService.listOrders());
         return new ResponseEntity<>(orderDtos, HttpStatus.OK);
     }
-
-    @Override
-    public ResponseEntity<OrderDto> deliverOrder(Integer orderId) {
-        OrderDto orderDto = orderMapper.toOrderDto(orderService.deliverById(orderId));
-        return new ResponseEntity<>(orderDto, HttpStatus.OK);
-    }
 }

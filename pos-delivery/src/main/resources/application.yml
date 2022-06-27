@@ -22,3 +22,6 @@ management:
   health:
     rabbit:
       enabled: false
+logging:
+  level:
+    root: INFO
