@@ -1,20 +1,5 @@
-# aw08
-
-Run the project with `mvn spring-boot:run` and send request to `http://localhost:8080/check`. You should see an reponses in json format like the following.
-
-```json
-{
-    "icon_url": "https://assets.chucknorris.host/img/avatar/chuck-norris.png",
-    "id": "kswv7NIaTCaIIErlBzODaA",
-    "url": "https://api.chucknorris.io/jokes/kswv7NIaTCaIIErlBzODaA",
-    "value": "Chuck Norris's shadow weighs 250 pounds and can kick your ass ."
-}
-```
-
-Try to understand the provided code which demonstrates spring integration between a spring boot application with an externel http service (https://api.chucknorris.io/jokes/random).
-
-Please implement delivery as an standalone service (just like the random joke service). Refer the sample code to integrate your Micropos system with delivery service so that user can check delivery status on Miropos which actually forwards user request to delivery service on demand.
-
-![](Micropos.svg)
-
-Consider the advantage by doing so and write it down in your readme file.
+主要的好处: 感觉主要还是解耦合，
+初次开发使用起来是比较困难的，如果可以整合在一起，一般是没必要
+做一个Integration，但是碰到比较特殊的情况，也就是目标API的形式
+完全不属于自己掌控的时候，用这种形式可以比较好的处理后续的API形式
+上的变化。
