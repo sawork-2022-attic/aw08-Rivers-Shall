@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: pos-delivery-service
+  main:
+    allow-circular-references: false
+  cloud:
+    function:
+      definition: orderIdConsumer
+    stream:
+      function:
+        bindings:
+          orderIdConsumer-in-0: output-order
+#      binders:
+#        local_rabbit:
+#          type: rabbit
+#          environment:
+#            spring:
+#              rabbitmq:
+#                host: localhost
+#                port: 5672
+#                username: guest
+#                password: guest
+server:
+  port: 10000
+#

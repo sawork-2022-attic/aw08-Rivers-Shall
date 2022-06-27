@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: pos-order-service
+  main:
+    allow-circular-references: false
+  cloud:
+    stream:
+      bindings:
+        output-order:
+          destination: output-order
+          binder: local_rabbit
+      binders:
+        local_rabbit:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: localhost
+                port: 5672
+                username: guest
+                password: guest
+server:
+  port: 9000
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
